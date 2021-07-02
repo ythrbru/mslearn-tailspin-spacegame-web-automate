@@ -47,8 +47,8 @@ resource "azurerm_app_service_plan" "spacegame" {
   reserved            = true
 
   sku {
-    tier = "Basic"
-    size = "B1"
+    tier = "Free"
+    size = "F1"
   }
 }
 
@@ -61,6 +61,7 @@ resource "azurerm_app_service" "spacegame_dev" {
   site_config {
     linux_fx_version = "DOTNETCORE|3.1"
     app_command_line = "dotnet Tailspin.SpaceGame.Web.dll"
+    use_32_bit_worker_process = true
   }
 }
 
